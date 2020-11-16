@@ -2,6 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: "com.cookpad.android.plugin.license-tools"
 apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 
 android {
@@ -11,7 +14,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 22
-        versionName "1.2"
+        versionName "2.0 - Dev"
         ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,47 +41,72 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //Firebase
-    implementation 'com.google.firebase:firebase-core:17.5.1'
-    implementation 'com.google.firebase:firebase-auth:19.4.0'
-    implementation 'com.google.firebase:firebase-analytics:17.6.0'
+    implementation 'com.google.firebase:firebase-core:18.0.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
     implementation 'com.google.firebase:firebase-database:19.5.1'
     implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
 
     //UI
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.github.GwonHyeok:StickySwitch:0.0.16'
 
     //Google Material Design
     implementation 'com.google.android.material:material:1.3.0-alpha03'
 
     //Play Services
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
-    implementation 'com.google.android.play:core:1.8.2'
-
-    //Cicerone
-    implementation 'ru.terrakok.cicerone:cicerone:5.1.1'
-
-    //MVP Moxy
-    implementation 'com.github.moxy-community:moxy:1.0.13'
-    annotationProcessor 'com.github.moxy-community:moxy-compiler:1.0.13'
-    implementation 'com.github.moxy-community:moxy-androidx:1.0.13'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.play:core:1.8.3'
 
     //RecyclerView
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     //CardView
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    // LifeCycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-beta1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-process:2.3.0-beta01"
+
+    // Room
+    implementation "androidx.room:room-runtime:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.2.5"
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0-M1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0-M1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.0-M1'
+
+    // Koin
+    implementation "org.koin:koin-android:2.1.6"
+    implementation "org.koin:koin-androidx-scope:2.1.6"
+    implementation "org.koin:koin-androidx-viewmodel:2.1.6"
+
+    // Navigation Components
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.1"
 
     //Glide
     implementation('com.github.bumptech.glide:glide:4.11.0') {transitive = true}
@@ -91,27 +119,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    //ToothPick - Dependency Injection
-    implementation 'com.github.stephanenicolas.toothpick:toothpick-runtime:2.1.0'
-    implementation 'com.github.stephanenicolas.toothpick:smoothie-androidx:2.1.0'
-    annotationProcessor 'com.github.stephanenicolas.toothpick:toothpick-compiler:2.1.0'
-
-    //RX Java
-    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
-
-    //Room
-    implementation 'androidx.room:room-runtime:2.2.5'
-    annotationProcessor 'androidx.room:room-compiler:2.2.5'
-    implementation 'androidx.room:room-rxjava2:2.2.5'
-
-    //ButterKnife
-    //noinspection AnnotationProcessorOnCompilePath
-    implementation 'com.jakewharton:butterknife:10.1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
-
     //Lottie
-    implementation "com.airbnb.android:lottie:3.4.1"
+    implementation "com.airbnb.android:lottie:3.5.0"
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }
 
 licenseTools {

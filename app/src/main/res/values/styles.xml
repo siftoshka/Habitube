@@ -1,13 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/mainBackground</item>
+        <item name="colorPrimaryDark">@color/colorSurface</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">@color/mainBackground</item>
-        <item name="android:editTextColor">@color/white_is_white</item>
+        <item name="colorControlNormal">@color/colorSurface</item>
+        <item name="android:editTextColor">@color/whiteColor</item>
         <item name="autoCompleteTextViewStyle">@style/cursorColor</item>
-        <item name="android:textColorHint">@color/white_is_white</item>
+        <item name="android:textColorHint">@color/whiteColor</item>
         <item name="android:windowBackground">@drawable/splash</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
         <item name="android:textColorHighlight">#99212121</item>
@@ -25,14 +24,14 @@
 
     <style name="AppCompatAlertDialogStyle" parent="Theme.MaterialComponents.Dialog.Alert">
         <item name="android:windowBackground">@drawable/round_button</item>
-        <item name="backgroundTint">@color/white_is_white</item>
+        <item name="backgroundTint">@color/whiteColor</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@color/dark_600</item>
+        <item name="android:textColorPrimary">@color/mainTextColor</item>
     </style>
 
     <style name="CardView.DayNight" parent="Widget.MaterialComponents.CardView">
-        <item name="android:background">@color/background</item>
+        <item name="android:background">@color/colorOnSurface</item>
     </style>
 
     <style name="cursorColor" parent="Widget.AppCompat.AutoCompleteTextView">
@@ -45,13 +44,13 @@
 
     <style name="CollapsingExpanded" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">26sp</item>
-        <item name="android:textColor">@color/dark_900</item>
+        <item name="android:textColor">@color/titleTextColor</item>
         <item name="android:fontFamily">@font/bold</item>
     </style>
 
     <style name="CollapsingCollapsed" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/dark_900</item>
+        <item name="android:textColor">@color/titleTextColor</item>
         <item name="android:fontFamily">@font/bold</item>
     </style>
 
@@ -60,7 +59,7 @@
     </style>
 
     <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">@color/hint_text</item>
+        <item name="colorControlNormal">@color/hintTextColor</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
@@ -76,5 +75,4 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
-
 </resources>

@@ -2,39 +2,20 @@
 <resources>
     <color name="colorPrimary">#1db98d</color>
     <color name="colorPrimaryDark">#1db98d</color>
+    <color name="colorPrimaryShadow">#8ed4c0</color>
     <color name="colorAccent">#1db98d</color>
     <color name="pinkColor">#F96C84</color>
+    <color name="whiteColor">#FFFFFF</color>
+    <color name="redColor">#EB4034</color>
+    <color name="colorSurface">#F0F0F0</color>
+    <color name="colorOnSurface">#FDFDFD</color>
 
-    <color name="white_is_white">#FFFFFF</color>
-    <color name="just_grey">#424242</color>
-    <color name="light_grey">#BFC2C2C2</color>
-    <color name="gray">#9F9F9F</color>
-    <color name="dark_grey">#111111</color>
-    <color name="colorPrimaryShadow">#8ed4c0</color>
-    <color name="hint_text">#757575</color>
-    <color name="expandBackground">#fcfafa</color>
-    <color name="deleteColor">#eb4034</color>
+    <color name="mainTextColor">#242424</color>
+    <color name="titleTextColor">#111111</color>
+    <color name="hintTextColor">#757575</color>
 
-    <color name="colorPrimaryLight">#bdb5c9</color>
-    <color name="mainBackground">#FFFFFF</color>
-    <color name="background">#FFFFFF</color>
-    <color name="genreBackground">#f1f1f1</color>
-    <color name="dialog">#FFFFFF</color>
-    <color name="cardview">#FFFFFF</color>
-
-    <color name="tab_color">#FFFFFF</color>
-    <color name="tab_selected">#424242</color>
-    <color name="tab_unselected">#757575</color>
-
-    <color name="dark_300">#E1E1E1</color>
-    <color name="dark_600">#757575</color>
-    <color name="dark_800">#424242</color>
-    <color name="dark_900">#242424</color>
-    <color name="dark_1000">#111111</color>
-
-    <color name="disney_plus">#FF101C50</color>
-    <color name="prime_video">#1C242E</color>
-
+    <color name="disneyColor">#FF101C50</color>
+    <color name="amazonColor">#1C242E</color>
     <color name="telegramColor">#2CA5E0</color>
     <color name="githubColor">#181717</color>
     <color name="instagramColor">#E4405F</color>
