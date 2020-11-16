@@ -6,18 +6,27 @@
         android:fontFamily="@font/bold"
         android:icon="@drawable/ic_trending"
         android:title="@string/navbar_explore"
-        app:showAsAction="ifRoom" />
+        app:iconTint="@color/colorSurface"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/nav_search"
+        android:fontFamily="@font/bold"
+        android:icon="@drawable/ic_search"
+        android:title="@string/navbar_search"
+        app:iconTint="@color/colorSurface"
+        app:showAsAction="always" />
     <item
         android:id="@+id/nav_library"
         android:fontFamily="@font/bold"
         android:icon="@drawable/ic_lib"
         android:title="@string/navbar_library"
-        app:iconTint="@color/mainBackground"
-        app:showAsAction="ifRoom" />
+        app:iconTint="@color/colorSurface"
+        app:showAsAction="always" />
     <item
         android:id="@+id/nav_account"
         android:fontFamily="@font/bold"
         android:icon="@drawable/ic_settings"
         android:title="@string/navbar_settings"
-        app:showAsAction="ifRoom" />
+        app:iconTint="@color/colorSurface"
+        app:showAsAction="always" />
 </menu>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSurface"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context="ui.explore.ExploreFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSurface"
+        app:liftOnScroll="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/elevation"
+                app:contentInsetEnd="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_horizontal"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:layout_marginEnd="@dimen/default_horizontal"
+                    android:layout_marginBottom="@dimen/default_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_button"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/default_horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/xsmall_margin"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/regular"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/app_name"
+                            android:textColor="@color/whiteColor"
+                            android:textSize="@dimen/text_app" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="@dimen/loading"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/explore_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:visibility="visible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_horizontal"
+                android:layout_marginTop="@dimen/xsmall_margin"
+                android:layout_marginEnd="@dimen/default_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/explore_movies"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/xsmall_margin"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bold"
+                    android:text="@string/movies"
+                    android:textAllCaps="false"
+                    android:textColor="@color/pinkColor"
+                    app:cornerRadius="@dimen/small_margin"
+                    app:icon="@drawable/ic_episodes"
+                    app:iconSize="@dimen/icon_size"
+                    app:iconTint="@color/pinkColor"
+                    app:strokeColor="@color/pinkColor" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/explore_shows"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xsmall_margin"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bold"
+                    android:text="@string/tv_shows"
+                    android:textAllCaps="false"
+                    android:textColor="@color/pinkColor"
+                    app:cornerRadius="@dimen/small_margin"
+                    app:icon="@drawable/ic_tv"
+                    app:iconSize="@dimen/icon_size"
+                    app:iconTint="@color/pinkColor"
+                    app:strokeColor="@color/pinkColor" />
+            </LinearLayout>
+
+            <!--Error Screen-->
+            <include
+                android:id="@+id/error_screen"
+                layout="@layout/include_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="150dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_horizontal"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/bold"
+                android:text="@string/upcoming_movies"
+                android:textColor="@color/mainTextColor"
+                android:textSize="@dimen/text_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_upcoming_movies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/default_horizontal"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_horizontal"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/bold"
+                android:text="@string/trending_movies"
+                android:textColor="@color/mainTextColor"
+                android:textSize="@dimen/text_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_trending_movies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/default_horizontal"
+                tools:ignore="RtlSymmetry" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_media"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/xsmall_margin"
+                android:paddingEnd="@dimen/xsmall_margin"
+                android:visibility="visible"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_horizontal"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/bold"
+                android:text="@string/trending_tv_shows"
+                android:textColor="@color/mainTextColor"
+                android:textSize="@dimen/text_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_tv_shows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/default_horizontal"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_horizontal"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/bold"
+                android:text="@string/air_today"
+                android:textColor="@color/mainTextColor"
+                android:textSize="@dimen/text_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_airtoday_tv_shows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/default_horizontal"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

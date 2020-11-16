@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_horizontal">16dp</dimen>
+    <dimen name="elevation">20dp</dimen>
+    <dimen name="xsmall_margin">5dp</dimen>
+    <dimen name="small_margin">10dp</dimen>
+    <dimen name="loading">180dp</dimen>
+
+    <dimen name="text_app">20sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="icon_size">20dp</dimen>
+</resources>
